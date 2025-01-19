@@ -1,1 +1,17 @@
+int main() {
+    // создаю объекты Time
+    Time time1(10, 30, 0);
+    Time time2(12, 45, 30);
+    Time time3(15, 30, 0);
 
+    // сздаю объект TimePeriod
+    TimePeriod period1(time1, time2);
+    period1.print();
+    std::cout << "Продолжительность в секундах: " << period1.getDurationInSeconds() << std::endl;
+    std::cout << "Продолжительность в минутах: " << period1.getDurationInMinutes() << std::endl;
+    std::cout << "Продолжительность в часах: " << period1.getDurationInHours() << std::endl;
+
+     TimePeriod period2(time3, time1);
+    period2.print();//выведет нули потому что периуд отрецательный 
+    return 0;
+}
