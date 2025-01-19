@@ -1,1 +1,43 @@
+#include <iostream>
+#include <string>
 
+class Product {
+private:
+    std::string name;
+    double price;
+    int quantity;
+
+public:
+    // это конструктор
+    Product(std::string name = "", double price = 0.0, int quantity = 0) : name(name), price(price), quantity(quantity) {
+        if(quantity < 0){
+            this->quantity = 0;
+        }
+    }
+    // это гететтеры 
+    std::string getName() const { return name; }
+    double getPrice() const { return price; }
+    int getQuantity() const { return quantity; }
+
+    // это сеттеры 
+    void setName(std::string newName) { name = newName; }
+    void setPrice(double newPrice) {
+         if (newPrice >= 0) {
+             price = newPrice;
+         }
+    }
+
+    // сдесь метод для изменения количества товара 
+    void changeQuantity(int amount) {
+        if (quantity + amount >= 0) {
+             quantity += amount;
+        } else{
+            quantity = 0;
+        }
+
+    }
+    //а это метод для вывода на экран данных о товаре
+    void print() const {
+        std::cout << "Товар: " << name << ", цена: " << price << ", количество: " << quantity << std::endl;
+    }
+};
